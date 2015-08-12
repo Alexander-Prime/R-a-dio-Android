@@ -1,0 +1,9 @@
+<resources>
+
+	<dimen name="keyline_padding">24dp</dimen>
+	<dimen name="keyline_content">80dp</dimen>
+
+	<!-- Column values -->
+	<dimen name="column_margin">24dip</dimen>
+
+</resources>

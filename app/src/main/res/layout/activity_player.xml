@@ -1,0 +1,41 @@
+<io.r_a_d.android.widget.PullDismissLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/pullDismiss"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+
+		android:orientation="vertical"
+		android:paddingLeft="@dimen/column_gutter"
+		android:paddingRight="@dimen/column_gutter">
+
+		<include layout="@layout/block_lastplayed" />
+
+		<android.support.v7.widget.CardView android:id="@+id/nowPlaying_card"
+			android:layout_width="match_parent"
+			android:layout_height="0dip"
+			android:layout_weight="1"
+
+			app:cardBackgroundColor="@color/grey_900"
+			app:cardCornerRadius="@dimen/cardView_cornerRadius"
+
+			android:transitionName="nowPlaying_card">
+
+			<include layout="@layout/block_nowplaying" />
+
+		</android.support.v7.widget.CardView>
+
+		<FrameLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<include layout="@layout/block_upnext" />
+			<include layout="@layout/block_thread" android:visibility="gone" />
+
+		</FrameLayout>
+
+	</LinearLayout>
+
+</io.r_a_d.android.widget.PullDismissLayout>

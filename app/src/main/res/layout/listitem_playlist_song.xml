@@ -1,0 +1,35 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="72dip"
+
+	android:background="?attr/selectableItemBackground"
+	android:paddingLeft="@dimen/keyline_padding"
+	android:paddingRight="@dimen/keyline_padding">
+
+	<TextView android:id="@+id/title"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="start|top"
+		android:layout_marginTop="16dip"
+
+		style="@style/TextAppearance.AppCompat.Subhead"
+
+		android:textColor="@color/white_a70"
+		android:singleLine="true"
+		android:ellipsize="marquee"
+
+		tools:text="T.M.Revolution - resonance" />
+
+	<TextView android:id="@+id/time"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="start|bottom"
+		android:layout_marginBottom="16dip"
+
+		style="@style/TextAppearance.AppCompat.Body1"
+
+		android:textColor="@color/white_a30"
+
+		tools:text="2 minutes ago" />
+
+</FrameLayout>

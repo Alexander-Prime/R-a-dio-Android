@@ -1,0 +1,60 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/nowPlaying"
+	android:layout_width="match_parent"
+	android:layout_height="88dip"
+
+	android:background="?attr/selectableItemBackground">
+
+	<FrameLayout
+		android:layout_width="0dip"
+		android:layout_height="match_parent"
+		android:layout_weight="1">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="start|top"
+			android:layout_marginLeft="@dimen/keyline_padding"
+			android:layout_marginStart="@dimen/keyline_padding"
+			android:layout_marginTop="16dip"
+
+			style="@style/TextAppearance.AppCompat.Body1"
+
+			android:textColor="@color/white_a70"
+			android:text="Now playing" />
+
+		<TextView android:id="@+id/nowPlaying_title"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="start|bottom"
+			android:layout_marginLeft="@dimen/keyline_padding"
+			android:layout_marginStart="@dimen/keyline_padding"
+			android:layout_marginRight="@dimen/keyline_padding"
+			android:layout_marginEnd="@dimen/keyline_padding"
+			android:layout_marginBottom="16dip"
+
+			style="@style/TextAppearance.AppCompat.Headline"
+
+			android:textColor="@color/white_a100"
+			android:singleLine="true"
+			android:ellipsize="marquee"
+			android:marqueeRepeatLimit="marquee_forever"
+
+			android:transitionName="nowPlaying_title"
+
+			tools:text="T.M.Revolution - resonance" />
+
+	</FrameLayout>
+
+	<ImageButton android:id="@+id/playPause"
+		android:layout_width="88dip"
+		android:layout_height="88dip"
+		android:layout_gravity="end|center_vertical"
+
+		android:padding="8dip"
+		android:src="@drawable/ic_play_arrow_white_48dp"
+		android:background="?attr/selectableItemBackgroundBorderless"
+
+		android:transitionName="playPause" />
+
+</LinearLayout>

@@ -1,0 +1,9 @@
+<resources>
+
+	<string name="app_name">R/a/dio</string>
+
+	<string name="share_title">Share R/a/dio via</string>
+
+	<string name="notice_noStreamInfo">Couldn\'t get stream info</string>
+
+</resources>

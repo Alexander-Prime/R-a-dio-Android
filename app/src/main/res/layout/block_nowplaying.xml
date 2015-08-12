@@ -1,0 +1,144 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/nowPlaying"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+
+	android:orientation="vertical"
+	android:paddingTop="16dip"
+	android:paddingBottom="16dip">
+
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="72dip"
+		android:layout_gravity="fill_horizontal|top"
+
+		android:paddingLeft="@dimen/keyline_padding"
+		android:paddingStart="@dimen/keyline_padding">
+
+		<de.hdodenhof.circleimageview.CircleImageView android:id="@+id/avatar"
+			android:layout_width="56dip"
+			android:layout_height="56dip"
+			android:layout_marginRight="16dip"
+			android:layout_marginEnd="16dip"
+			android:layout_gravity="start|center_vertical"
+
+			app:border_width="1px"
+			app:border_color="@color/white_a12"
+			app:border_overlay="true"
+
+			android:src="@drawable/logo" />
+
+		<TextView android:id="@+id/name"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="72dip"
+			android:layout_marginStart="72dip"
+			android:layout_marginTop="14dip"
+			android:layout_gravity="start|top"
+
+			style="@style/TextAppearance.AppCompat.Title"
+
+			android:textColor="@color/white_a70"
+
+			tools:text="DJ Name" />
+
+		<TextView android:id="@+id/listeners"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="72dip"
+			android:layout_marginStart="72dip"
+			android:layout_marginBottom="14dip"
+			android:layout_gravity="start|bottom"
+
+			style="@style/TextAppearance.AppCompat.Body1"
+
+			android:textColor="@color/white_a30"
+
+			tools:text="240 listeners" />
+
+		<ImageButton android:id="@+id/share"
+			android:layout_width="64dip"
+			android:layout_height="match_parent"
+			android:layout_gravity="end|center_vertical"
+
+			android:src="@drawable/ic_share_white_a70_24dp"
+			android:background="?attr/selectableItemBackgroundBorderless" />
+
+	</FrameLayout>
+
+	<ImageButton android:id="@+id/playPause"
+		android:layout_width="128dip"
+		android:layout_height="128dip"
+		android:layout_gravity="center"
+
+		android:background="?attr/selectableItemBackgroundBorderless"
+
+		tools:src="@drawable/ic_play_arrow_white_48dp"
+
+		android:transitionName="playPause" />
+
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_gravity="fill_horizontal|bottom"
+
+		android:orientation="vertical"
+		android:paddingLeft="@dimen/keyline_padding"
+		android:paddingStart="@dimen/keyline_padding"
+		android:paddingRight="@dimen/keyline_padding"
+		android:paddingEnd="@dimen/keyline_padding">
+
+		<TextView android:id="@+id/title"
+			android:layout_width="match_parent"
+			android:layout_height="40dip"
+			android:layout_gravity="fill_horizontal|top"
+
+			style="@style/TextAppearance.AppCompat.Headline"
+
+			android:gravity="start|center_vertical"
+			android:singleLine="true"
+			android:ellipsize="marquee"
+			android:marqueeRepeatLimit="marquee_forever"
+
+			android:transitionName="nowPlaying_title"
+
+			tools:text="Artist - Song Title" />
+
+		<ProgressBar android:id="@+id/progress"
+			android:layout_width="match_parent"
+			android:layout_height="24dip"
+			android:layout_marginTop="56dip"
+			android:layout_marginBottom="16dip"
+			android:layout_gravity="fill_horizontal"
+
+			style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+
+			android:progressBackgroundTint="@color/black"
+
+			tools:progress="32" />
+
+		<TextView android:id="@+id/elapsed"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="start|bottom"
+
+			style="@style/TextAppearance.AppCompat.Body1"
+
+			android:textColor="@color/white_a30"
+
+			tools:text="1:15" />
+
+		<TextView android:id="@+id/duration"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="end|bottom"
+
+			style="@style/TextAppearance.AppCompat.Body1"
+
+			android:textColor="@color/white_a30"
+
+			tools:text="3:57" />
+
+	</FrameLayout>
+
+</FrameLayout>

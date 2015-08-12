@@ -1,0 +1,33 @@
+<resources>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	    Brand -->
+
+	<color name="radioRed_500">#df4c3a</color>
+	<color name="radioRed_700">#b73a29</color>
+
+	<color name="radioBlue_600">#49667f</color>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	    Greyscale by RGB -->
+
+	<color name="grey_800">#424242</color>
+	<color name="grey_850">#303030</color>
+	<color name="grey_900">#212121</color>
+
+	<color name="black">#000</color>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	    Greyscale by alpha -->
+
+	<color name="black_a82">#de000000</color>
+	<color name="black_a54">#8a000000</color>
+	<color name="black_a26">#42000000</color>
+	<color name="black_a12">#1f000000</color>
+
+	<color name="white_a100">#ffffffff</color>
+	<color name="white_a70">#b2ffffff</color>
+	<color name="white_a30">#4cffffff</color>
+	<color name="white_a12">#1fffffff</color>
+
+</resources>

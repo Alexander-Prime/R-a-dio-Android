@@ -1,0 +1,9 @@
+<resources>
+
+	<dimen name="cardView_cornerRadius">2dip</dimen>
+
+	<!-- Column values -->
+	<dimen name="column_gutter">40dip</dimen>
+	<integer name="column_count">8</integer>
+
+</resources>

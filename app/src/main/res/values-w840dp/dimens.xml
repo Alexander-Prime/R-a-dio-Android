@@ -1,0 +1,7 @@
+<resources>
+
+	<!-- Column values -->
+	<dimen name="column_gutter">40dip</dimen>
+	<integer name="column_count">12</integer>
+
+</resources>
