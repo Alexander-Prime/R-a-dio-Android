@@ -265,7 +265,7 @@ implements   ServiceConnection,
 
 		builder.setContentTitle( radioInfo_binder.getRadio().nowPlaying().meta );
 		builder.setContentText( radio.dj.djname );
-		builder.setSubText( getResources().getString( R.string.format_listeners, radio.listeners ));
+		builder.setSubText( getResources().getQuantityString( R.plurals.format_listeners, radio.listeners, radio.listeners ));
 		builder.setSmallIcon( R.drawable.ic_notification );
 		builder.setLargeIcon( djAvatar );
 		builder.setStyle( mediaStyle );

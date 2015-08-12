@@ -165,7 +165,7 @@ implements   RadioInfoService.Listener,
 			.placeholder( R.drawable.logo )
 			.into( avatar );
 		name.setText( radio.dj.djname );
-		listeners.setText( getResources().getString( R.string.format_listeners, radio.listeners ));
+		listeners.setText( getResources().getQuantityString( R.plurals.format_listeners, radio.listeners, radio.listeners ));
 
 		final Song s = radio.nowPlaying();
 		title.setText( s.meta );
