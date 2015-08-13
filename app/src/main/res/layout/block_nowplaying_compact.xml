@@ -42,7 +42,7 @@
 
 			android:transitionName="nowPlaying_title"
 
-			tools:text="T.M.Revolution - resonance" />
+			android:text="@string/placeholder_title" />
 
 	</FrameLayout>
 

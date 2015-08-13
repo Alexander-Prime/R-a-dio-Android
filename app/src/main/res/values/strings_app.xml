@@ -6,4 +6,12 @@
 
 	<string name="notice_noStreamInfo">Couldn\'t get stream info</string>
 
+
+	<!-- Placeholder UI text -->
+	<string name="placeholder_djName">R/a/dio</string>
+	<string name="placeholder_listeners">No other listeners</string>
+	<string name="placeholder_title">Loading track info…</string>
+	<string name="placeholder_lastPlayed_title">…</string>
+	<string name="placeholder_upNext_title">…</string>
+
 </resources>

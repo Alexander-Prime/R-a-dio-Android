@@ -42,6 +42,7 @@
 		android:textColor="@color/white_a30"
 		android:singleLine="true"
 		android:ellipsize="end"
+		android:text="@string/placeholder_upNext_title"
 
 		android:transitionName="upNext_title"
 
