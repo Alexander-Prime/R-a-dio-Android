@@ -12,6 +12,7 @@ import android.content.ServiceConnection;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.media.audiofx.Visualizer;
+import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
@@ -152,6 +153,8 @@ implements   ServiceConnection,
 	@Override public void onDestroy() {
 		super.onDestroy();
 
+		radioInfo_binder.removeListener( this );
+
 		unbindService( this );
 		unregisterReceiver( playPause_receiver );
 
@@ -205,7 +208,18 @@ implements   ServiceConnection,
 
 			default:
 				if ( isBound ) stopSelf();
-				else stopForeground( false );
+				else {
+					// Before Lollipop, the foreground notification needs to be
+					// destroyed before a newly created one can be dismissed
+					// http://stackoverflow.com/a/28036079/689444
+					if ( Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP ) {
+						stopForeground( true );
+						invalidateNotification();
+
+					} else {
+						stopForeground( false );
+					}
+				}
 				break;
 		}
 
@@ -270,7 +284,6 @@ implements   ServiceConnection,
 		builder.setLargeIcon( djAvatar );
 		builder.setStyle( mediaStyle );
 		builder.setShowWhen( false );
-		builder.setOngoing( player.isStreaming() );
 
 		builder.setContentIntent( content_intent );
 		builder.setDeleteIntent( stop_intent );
