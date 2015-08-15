@@ -202,6 +202,7 @@ implements   ServiceConnection,
 		switch ( newState ) {
 			case PLAYBACK_PLAYING:
 			case PLAYBACK_BUFFERING:
+				if ( radioInfo_binder.getRadio() == null ) radioInfo_binder.refresh();
 				if ( isBound ) startService( new Intent( this, getClass() ));
 				else startForeground( NOTIFICATION_ID, makeNotification() );
 				break;
@@ -301,7 +302,6 @@ implements   ServiceConnection,
 	//--------------------------------------------------------------------------
 
 	private void invalidateSessionState() {
-		final Radio radio = radioInfo_binder.getRadio();
 
 
 		final PlaybackStateCompat.Builder stateBuilder = new PlaybackStateCompat.Builder()
@@ -321,7 +321,9 @@ implements   ServiceConnection,
 			case PLAYBACK_PLAYING:   sessionState = PlaybackStateCompat.STATE_PLAYING;   rate = 1f; break;
 		}
 
-		stateBuilder.setState( sessionState, radio.nowPlaying().getElapsedSeconds() * 1000, rate );
+		if ( radioInfo_binder.getRadio() != null ) {
+			stateBuilder.setState( sessionState, radioInfo_binder.getRadio().nowPlaying().getElapsedSeconds() * 1000, rate );
+		}
 
 
 		session.setPlaybackState( stateBuilder.build() );
