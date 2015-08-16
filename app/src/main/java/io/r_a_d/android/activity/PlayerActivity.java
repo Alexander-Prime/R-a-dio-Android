@@ -1,12 +1,15 @@
 package io.r_a_d.android.activity;
 
+import android.app.ActivityManager.TaskDescription;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.res.Resources;
+import android.graphics.BitmapFactory;
 import android.media.AudioManager;
 import android.media.audiofx.Visualizer;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v4.app.ActivityOptionsCompat;
@@ -133,6 +136,16 @@ implements   RadioInfoService.Listener,
 				radioPlayback_binder.removeListener( PlayerActivity.this );
 			}
 		};
+
+
+
+		if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ) {
+			TaskDescription desc = new TaskDescription(
+				getResources().getString( R.string.app_name ),
+				BitmapFactory.decodeResource( getResources(), R.drawable.logo_silhouette ),
+				getResources().getColor( R.color.radioRed_500 ));
+			setTaskDescription( desc );
+		}
 	}
 
 	//--------------------------------------------------------------------------
