@@ -28,6 +28,20 @@ implements   Visualizer.OnDataCaptureListener {
 
 	//--------------------------------------------------------------------------
 
+	// Prefer refreshing 6 times a second
+	public static int getPreferredCaptureRate() {
+		return Math.min( Visualizer.getMaxCaptureRate(), 6000 );
+	}
+
+	//--------------------------------------------------------------------------
+
+	public static int rateToInterval( int milliHz ) {
+		return (int)( 1000f / ( milliHz / 1000f ));
+	}
+
+	//--------------------------------------------------------------------------
+	//--------------------------------------------------------------------------
+
 	public VisualizedAudioTrackRenderer( SampleSource source ) {
 		super( source );
 	}
@@ -62,7 +76,7 @@ implements   Visualizer.OnDataCaptureListener {
 
 		visualizer = new Visualizer( id );
 		visualizer.setCaptureSize( Visualizer.getCaptureSizeRange()[1] );
-		visualizer.setDataCaptureListener( this, Visualizer.getMaxCaptureRate(), true, false );
+		visualizer.setDataCaptureListener( this, getPreferredCaptureRate(), true, false );
 		setVisualizerEnabled( visEnabled );
 
 		// This is needed to prevent system volume affecting the sample amplitude

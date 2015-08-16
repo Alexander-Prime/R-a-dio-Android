@@ -8,9 +8,9 @@ import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import android.media.audiofx.Visualizer;
 import android.support.v4.view.animation.LinearOutSlowInInterpolator;
-import android.view.animation.AccelerateInterpolator;
+
+import prime.lib.android.radioplayer.VisualizedAudioTrackRenderer;
 
 //==============================================================================
 public class CircleVisualizerDrawable
@@ -19,8 +19,7 @@ implements   AnimatorUpdateListener {
 	//--------------------------------------------------------------------------
 
 	private ValueAnimator
-		upAnimator = new ValueAnimator(),
-		downAnimator = new ValueAnimator();
+		upAnimator = new ValueAnimator();
 
 	private Paint paint;
 	private float amplitude, maxRadius, minRadius, centerX, centerY;
@@ -28,15 +27,10 @@ implements   AnimatorUpdateListener {
 	//--------------------------------------------------------------------------
 
 	public CircleVisualizerDrawable() {
-		final long upDuration = (long)( 1000f / ( Visualizer.getMaxCaptureRate() / 1000f ));
 
 		upAnimator.setInterpolator( new LinearOutSlowInInterpolator() );
-		upAnimator.setDuration( upDuration * 2 );
+		upAnimator.setDuration( VisualizedAudioTrackRenderer.rateToInterval( VisualizedAudioTrackRenderer.getPreferredCaptureRate() ));
 		upAnimator.addUpdateListener( this );
-
-		downAnimator.setInterpolator( new AccelerateInterpolator() );
-		downAnimator.setStartDelay( upDuration * 2 );
-		downAnimator.addUpdateListener( this );
 
 
 		paint = new Paint();
@@ -84,6 +78,7 @@ implements   AnimatorUpdateListener {
 	}
 
 	//--------------------------------------------------------------------------
+	//--------------------------------------------------------------------------
 
 	public void setColor( int color ) {
 		paint.setColor( color );
@@ -114,20 +109,10 @@ implements   AnimatorUpdateListener {
 
 	//--------------------------------------------------------------------------
 
-	// Doesn't actually set the visible amplitude directly, just activates the
-	// animators if it's greater than the current amplitude
 	public void setAmplitude( float amp ) {
-		if ( amp > amplitude ) {
-			upAnimator.cancel();
-			downAnimator.cancel();
-
-			upAnimator.setFloatValues( amplitude, amp );
-			downAnimator.setFloatValues( amp, 0 );
-			downAnimator.setDuration( (long)( amp * 1000 ));
-
-			upAnimator.start();
-			downAnimator.start();
-		}
+		upAnimator.cancel();
+		upAnimator.setFloatValues( amplitude, amp );
+		upAnimator.start();
 	}
 
 	//--------------------------------------------------------------------------
