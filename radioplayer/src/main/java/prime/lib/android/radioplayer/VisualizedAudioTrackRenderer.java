@@ -4,7 +4,6 @@ import android.media.audiofx.Equalizer;
 import android.media.audiofx.Visualizer;
 import android.os.Handler;
 import android.support.annotation.FloatRange;
-import android.util.Log;
 
 import com.google.android.exoplayer.MediaCodecAudioTrackRenderer;
 import com.google.android.exoplayer.SampleSource;
@@ -73,8 +72,6 @@ implements   Visualizer.OnDataCaptureListener {
 	//--------------------------------------------------------------------------
 
 	@Override protected void onDisabled() {
-		Log.d( "Radio", "onDisabled()" );
-
 		super.onDisabled();
 
 		equalizer.release();
