@@ -19,7 +19,8 @@ implements   AnimatorUpdateListener {
 	//--------------------------------------------------------------------------
 
 	private ValueAnimator
-		upAnimator = new ValueAnimator();
+		upAnimator = new ValueAnimator(),
+		downAnimator = new ValueAnimator();
 
 	private Paint paint;
 	private float amplitude, maxRadius, minRadius, centerX, centerY;
@@ -31,6 +32,11 @@ implements   AnimatorUpdateListener {
 		upAnimator.setInterpolator( new LinearOutSlowInInterpolator() );
 		upAnimator.setDuration( VisualizedAudioTrackRenderer.rateToInterval( VisualizedAudioTrackRenderer.getPreferredCaptureRate() ));
 		upAnimator.addUpdateListener( this );
+
+		downAnimator.setInterpolator( upAnimator.getInterpolator() );
+		downAnimator.setStartDelay( upAnimator.getDuration() );
+		downAnimator.setDuration( upAnimator.getDuration() * 4 );
+		downAnimator.addUpdateListener( this );
 
 
 		paint = new Paint();
@@ -110,9 +116,15 @@ implements   AnimatorUpdateListener {
 	//--------------------------------------------------------------------------
 
 	public void setAmplitude( float amp ) {
-		upAnimator.cancel();
-		upAnimator.setFloatValues( amplitude, amp );
-		upAnimator.start();
+		if ( amp > amplitude ) {
+			upAnimator.cancel();
+			upAnimator.setFloatValues( amplitude, amp );
+			upAnimator.start();
+
+			downAnimator.cancel();
+			downAnimator.setFloatValues( amp, 0 );
+			downAnimator.start();
+		}
 	}
 
 	//--------------------------------------------------------------------------
