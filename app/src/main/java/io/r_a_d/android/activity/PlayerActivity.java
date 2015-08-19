@@ -63,8 +63,9 @@ implements   RadioInfoService.Listener,
 	@Bind( R.id.lastPlayed_title ) TextView lastPlayed_title;
 	@Bind( R.id.upNext_title     ) TextView upNext_title;
 
-	@Bind( R.id.upNext ) View upNext;
-	@Bind( R.id.thread ) View thread;
+	@Bind( R.id.upNext   ) View upNext;
+	@Bind( R.id.thread   ) View thread;
+	@Bind( R.id.noThread ) View noThread;
 
 	@Bind( R.id.nowPlaying_card ) View nowPlaying_card;
 	@Bind( R.id.nowPlaying      ) View nowPlaying;
@@ -188,13 +189,24 @@ implements   RadioInfoService.Listener,
 
 
 		if ( radio.isAfk() ) {
-			upNext.setVisibility( View.VISIBLE );
-			thread.setVisibility( View.GONE );
+			upNext.  setVisibility( View.VISIBLE );
+			thread  .setVisibility( View.GONE    );
+			noThread.setVisibility( View.GONE    );
+
 			pullDismiss.setPullEdges( Gravity.TOP | Gravity.BOTTOM );
 
 		} else {
 			upNext.setVisibility( View.GONE );
-			thread.setVisibility( View.VISIBLE );
+
+			if ( radio.hasThread() ) {
+				thread  .setVisibility( View.VISIBLE );
+				noThread.setVisibility( View.GONE    );
+				
+			} else {
+				thread  .setVisibility( View.GONE    );
+				noThread.setVisibility( View.VISIBLE );
+			}
+
 			pullDismiss.setPullEdges( Gravity.TOP );
 		}
 	}

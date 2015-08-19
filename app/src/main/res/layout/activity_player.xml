@@ -33,6 +33,7 @@
 
 			<include layout="@layout/block_upnext" />
 			<include layout="@layout/block_thread" android:visibility="gone" />
+			<include layout="@layout/block_nothread" android:visibility="gone" />
 
 		</FrameLayout>
 
