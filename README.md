@@ -2,6 +2,6 @@
 
 Download:
 
-https://www.dropbox.com/s/8qndt1r2qy4136q/radio-debug.apk?dl=0
+https://www.dropbox.com/s/dn4twzk7jmhw16x/radio-release.apk?dl=0
 
 ![Screenshot](http://i.imgur.com/tYcGmhY.png)
